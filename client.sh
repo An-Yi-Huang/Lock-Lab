@@ -55,6 +55,11 @@ case "$2" in
       normal_request_process "$@"
   fi
   ;;
+  shutdown)
+      open_pipe "$@"
+      send_msg "$@"
+      close_pipe "$@"
+      
 esac
 
 rm -f "$1".pipe

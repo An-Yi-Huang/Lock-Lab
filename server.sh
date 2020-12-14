@@ -4,7 +4,6 @@ mkfifo server.pipe
 
 while true; do
   read request < server.pipe
-  echo "serverReq: " "$request"
   rqSplit=($request)
   clientId="${rqSplit[0]}"
 
