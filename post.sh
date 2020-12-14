@@ -4,9 +4,6 @@ receiver="$1"
 sender="$2"
 message="$3"
 
-echo $receiver
-echo $sender
-
 if [ $# -ne 3 ]; then
   echo "Error: parameters problem"
   exit 1
