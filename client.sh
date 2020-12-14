@@ -1,12 +1,12 @@
 #! /bin/bash
 
-if [ $# -lt 2 ]; then
+if [ "$#" -lt 2 ]; then
   echo "Error: parameters problem"
   exit 1
 fi
 
 open_pipe() {
-  mkfifo $1.pipe
+  mkfifo "$1".pipe
 }
 
 send_msg() {
@@ -16,11 +16,11 @@ send_msg() {
 receive_msg() {
   while read input; do
     echo "$input"
-  done < $1.pipe
+  done < "$1".pipe
 }
 
 close_pipe() {
-  rm -f $1.pipe
+  rm -f "$1".pipe
   if [[ -z $? ]]; then
     exit 0
   fi 
@@ -57,6 +57,6 @@ case "$2" in
   ;;
 esac
 
-rm -f $1.pipe
+rm -f "$1".pipe
 echo "Error: bad request"
 exit 1
