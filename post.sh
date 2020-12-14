@@ -25,7 +25,7 @@ fi
 ./P.sh "$receiver"/friends
 if grep -q "$sender" "$receiver/friends" ; then
   echo "----- $Sender"
-  echo "$sender" : "$message" > "$receiver"/wall
+  echo "$sender": "$message" > "$receiver"/wall
   ./V.sh "$receiver"/friends
   echo "Ok: Message posted to wall"
   exit 0
