@@ -7,7 +7,7 @@ elif [ ! -e "$1" ]; then
   echo "Target for the lock must exist"
   exit 2
 else
-  while ! ln "$1" "$1-lock" 2>/dev/null; do
+  while ! ln "$0" "$1-lock" 2>/dev/null; do
     sleep 1
   done
   exit 0

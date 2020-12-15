@@ -20,9 +20,7 @@ if ! [ -d "$sender" ]; then
 fi
 
 if grep -q "$sender" "$receiver/friends" ; then
-  ./P.sh "$receiver"/wall
   echo "$sender": "$message" >> "$receiver"/wall
-  ./V.sh "$receiver"/wall
   echo "Ok: Message posted to wall"
   exit 0
 else
