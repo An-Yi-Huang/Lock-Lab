@@ -19,14 +19,13 @@ if ! [ -d "$sender" ]; then
   exit 2
 fi
 
-./P.sh "$receiver"/friends
 if grep -q "$sender" "$receiver/friends" ; then
+  ./P.sh "$receiver"/wall
   echo "$sender": "$message" >> "$receiver"/wall
-  ./V.sh "$receiver"/friends
+  ./V.sh "$receiver"/wall
   echo "Ok: Message posted to wall"
   exit 0
 else
   echo "Error: Sender is not a friend of receiver"
-  ./V.sh "$receiver"/friends
   exit 3
 fi
